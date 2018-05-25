@@ -27,7 +27,7 @@ with respect to additions or feature requests.
 
 If you prefer to use a containerized application, like Jupyter\* notebooks, 
 Google Docs\*, or MS Word\* to write and share documentation contributions, 
-you can convert the ``doc/sphinx/source/*.rst`` files to another format with a tool 
+you can convert the ``docs/sphinx/source/*.rst`` files to another format with a tool 
 like ``pypandoc`` and share a link to your docs on our `wiki`_.
 
 Another option is to fork the `ngraph repo`_, essentially snapshotting it at 
@@ -111,7 +111,7 @@ Build the documentation
    you start at a command line running within a clone (or a cloned fork) of the 
    ``ngraph`` repo.  You do **not** need to run a virtual environment to create 
    documentation if you don't want; running ``$ make clean`` in the 
-   ``doc/sphinx`` folder removes any generated files.
+   ``docs/sphinx`` folder removes any generated files.
 
 Right now the minimal version of Sphinx needed to build the documentation is 
 Sphinx v. 1.6.5.  This can be installed with :command:`pip3`, either to a virtual 
@@ -126,7 +126,7 @@ To build documentation locally, run:
 
       $ pip3 install [-I] Sphinx==1.6.5 [--user] 
       $ pip3 install [-I] breathe [--user]
-      $ cd doc/sphinx/
+      $ cd docs/sphinx/
       $ make html
       $ cd build/html
       $ python3 -m http.server 8000
@@ -140,7 +140,7 @@ To build documentation in a python3 virtualenv, run:
       $ python3 -m venv py3doc
       $ . py3doc/bin/activate
       (py3doc)$ pip install sphinx breathe
-      (py3doc)$ cd doc/sphinx
+      (py3doc)$ cd docs/sphinx
       (py3doc)$ make html
       (py3doc)$ cd build/html
       (py3doc)$ python -m http.server 8000

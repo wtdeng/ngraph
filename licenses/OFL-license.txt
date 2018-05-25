@@ -2,11 +2,11 @@ This Font Software is licensed under the SIL Open Font License, Version 1.1.
 This license is copied copied below, and is also available with a FAQ at:
 http://scripts.sil.org/OFL
 
-doc/sphinx/ngraph_theme/static/fonts/Inconsolata-Bold.ttf
-doc/sphinx/ngraph_theme/static/fonts/Inconsolata-Regular.ttf
-doc/sphinx/ngraph_theme/static/fonts/NanumGothic-Bold.ttf
-doc/sphinx/ngraph_theme/static/fonts/NanumGothic-Regular.ttf
-doc/sphinx/ngraph_theme/static/fonts/NanumGothicCoding-Regular.ttf
+docs/sphinx/ngraph_theme/static/fonts/Inconsolata-Bold.ttf
+docs/sphinx/ngraph_theme/static/fonts/Inconsolata-Regular.ttf
+docs/sphinx/ngraph_theme/static/fonts/NanumGothic-Bold.ttf
+docs/sphinx/ngraph_theme/static/fonts/NanumGothic-Regular.ttf
+docs/sphinx/ngraph_theme/static/fonts/NanumGothicCoding-Regular.ttf
 
 
 Refer to https://fonts.google.com/attribution for additional information.

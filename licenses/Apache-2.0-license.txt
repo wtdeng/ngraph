@@ -1,9 +1,9 @@
 This Font Software is licensed under the Apache License, Version 2.0.
 
-doc/sphinx/ngraph_theme/static/fonts/RobotoSlab-Bold.ttf
-doc/sphinx/ngraph_theme/static/fonts/RobotoSlab-Light.ttf
-doc/sphinx/ngraph_theme/static/fonts/RobotoSlab-Regular.ttf
-doc/sphinx/ngraph_theme/static/fonts/RobotoSlab-Thin.ttf
+docs/sphinx/ngraph_theme/static/fonts/RobotoSlab-Bold.ttf
+docs/sphinx/ngraph_theme/static/fonts/RobotoSlab-Light.ttf
+docs/sphinx/ngraph_theme/static/fonts/RobotoSlab-Regular.ttf
+docs/sphinx/ngraph_theme/static/fonts/RobotoSlab-Thin.ttf
 
 Refer to https://fonts.google.com/attribution for additional information.
 
@@ -11,10 +11,10 @@ Refer to https://fonts.google.com/attribution for additional information.
 The following license applies to the following files that utilize the swagger-api,
 which is licensed under the Apache License, Version 2.0.  See also swagger-ui-license.txt.
 
-doc/sphinx/ngraph_theme/static/css/swagger.css
-doc/sphinx/ngraph_theme/static/js/swagger-oauth.js
-doc/sphinx/ngraph_theme/static/js/swagger-ui.js
-doc/sphinx/ngraph_theme/static/js/swagger-ui.min.js
+docs/sphinx/ngraph_theme/static/css/swagger.css
+docs/sphinx/ngraph_theme/static/js/swagger-oauth.js
+docs/sphinx/ngraph_theme/static/js/swagger-ui.js
+docs/sphinx/ngraph_theme/static/js/swagger-ui.min.js
 
 
 The license is copied below.

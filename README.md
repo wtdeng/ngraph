@@ -54,6 +54,6 @@ to improve the library:
 [Github issues]: https://github.com/NervanaSystems/ngraph/issues
 [pull request]: https://github.com/NervanaSystems/ngraph/pulls
 [how to import]: http://ngraph.nervanasys.com/docs/latest/howto/import.html
-[ngraph-ecosystem]: doc/sphinx/source/graphics/ngraph-ecosystem.png "nGraph Ecosystem"
+[ngraph-ecosystem]: docs/sphinx/source/graphics/ngraph-ecosystem.png "nGraph Ecosystem"
 [build-status]: https://travis-ci.org/NervanaSystems/ngraph/branches
 [build-status-badge]: https://travis-ci.org/NervanaSystems/ngraph.svg?branch=master

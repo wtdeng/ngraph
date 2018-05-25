@@ -13,7 +13,7 @@ that make by-hand graph construction simpler tend to make automatic construction
 more difficult, and vice versa.
 
 Here we will do all the bridge steps manually. The :term:`model description` 
-walk-through below is based on the :file:`abc.cpp` code in the ``/doc/examples/`` 
+walk-through below is based on the :file:`abc.cpp` code in the ``/docs/examples/`` 
 directory. We'll be deconstructing the steps that must happen (either programmatically 
 or manually) in order to successfully execute a computation:
 

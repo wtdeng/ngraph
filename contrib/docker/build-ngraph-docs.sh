@@ -32,7 +32,7 @@ fi
 export NGRAPH_REPO=/home/dockuser/ngraph-test
 
 if [ -z ${BUILD_SUBDIR} ] ; then
-    BUILD_DIR="${NGRAPH_REPO}/doc/sphinx"
+    BUILD_DIR="${NGRAPH_REPO}/docs/sphinx"
 else
     BUILD_DIR="${NGRAPH_REPO}/${BUILD_SUBDIR}"
 fi

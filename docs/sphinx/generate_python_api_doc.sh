@@ -9,7 +9,7 @@
 
 # paths relative to this file location
 NGRAPH_REPO=../..
-DOC_DIR=${NGRAPH_REPO}/doc
+DOC_DIR=${NGRAPH_REPO}/docs
 TMP_DIR=/tmp/sphinx_auto_py_doc
 EXCLUDE_DIRS="${NGRAPH_REPO}/python/ngraph/impl*
               ${NGRAPH_REPO}/python/ngraph/utils*"

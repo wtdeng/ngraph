@@ -107,7 +107,7 @@ message (STATUS "To Override use: cmake -DNGRAPH_INSTALL_PREFIX=/foo")
 # Destinations
 set(NGRAPH_INSTALL_LIB "${CMAKE_INSTALL_PREFIX}/lib")
 set(NGRAPH_INSTALL_INCLUDE "${CMAKE_INSTALL_PREFIX}/include")
-set(NGRAPH_INSTALL_DOC "${CMAKE_INSTALL_PREFIX}/doc")
+set(NGRAPH_INSTALL_DOC "${CMAKE_INSTALL_PREFIX}/docs")
 
 #-----------------------------------------------------------------------------------------------
 # Compiler-specific logic...
@@ -248,4 +248,4 @@ else()
     message(STATUS "unit tests disabled")
 endif()
 
-add_subdirectory(doc)
+add_subdirectory(docs)

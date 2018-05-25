@@ -99,7 +99,7 @@ The process documented here will work on Ubuntu\* 16.04 (LTS)
       $ make install          
 
 #. (Optional, requires `doxygen`_, `Sphinx`_, and `breathe`_). Run ``make html`` 
-   inside the ``doc/sphinx`` directory of the cloned source to build a copy of 
+   inside the ``docs/sphinx`` directory of the cloned source to build a copy of 
    the `website docs`_ locally. The low-level API docs with inheritance and 
    collaboration diagrams can be found inside the ``/docs/doxygen/`` directory. 
    See the :doc:`project/doc-contributor-README` for more details about how to 

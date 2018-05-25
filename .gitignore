@@ -49,7 +49,7 @@ output/
 *.cpio
 *.wav
 *.backup
-doc/source/generated
+docs/source/generated
 .cache/
 nervana_aeon.egg-info/
 *.xsd
@@ -82,13 +82,13 @@ VisualGDB/
 toolchain.cmake
 
 # docbuild artifacts
-doc/sphinx/build/*
-doc/doxygen/*.xml
-doc/doxygen/*.html
-doc/doxygen/man/*
-doc/doxygen/latex/*
-doc/doxygen/xml/*
-doc/doxygen/html/*
+docs/sphinx/build/*
+docs/doxygen/*.xml
+docs/doxygen/*.html
+docs/doxygen/man/*
+docs/doxygen/latex/*
+docs/doxygen/xml/*
+docs/doxygen/html/*
 
 
 # python venv things that might get added accidentally
