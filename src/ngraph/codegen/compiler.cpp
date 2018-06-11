@@ -374,50 +374,24 @@ void codegen::StaticCompiler::configure_search_path()
 
     add_header_search_path("/Library/Developer/CommandLineTools/usr/include/c++/v1");
 #else
-    NGRAPH_INFO << CLANG_BUILTIN_HEADERS_PATH;
     // Add base toolchain-supplied header paths
     // Ideally one would use the Linux toolchain definition in clang/lib/Driver/ToolChains.h
     // But that's a private header and isn't part of the public libclang API
     // Instead of re-implementing all of that functionality in a custom toolchain
     // just hardcode the paths relevant to frequently used build/test machines for now
     add_header_search_path(CLANG_BUILTIN_HEADERS_PATH);
-    // add_header_search_path("/usr/include/x86_64-linux-gnu");
-    // add_header_search_path("/usr/include");
 
-    // // Search for headers in
-    // //    /usr/include/x86_64-linux-gnu/c++/N.N
-    // //    /usr/include/c++/N.N
-    // // and add them to the header search path
+    string header_version = find_header_version("/usr/include/c++");
 
-    // file_util::iterate_files("/usr/include/x86_64-linux-gnu/c++/",
-    //                          [&](const std::string& file, bool is_dir) {
-    //                              if (is_dir)
-    //                              {
-    //                                  string dir_name = file_util::get_file_name(file);
-    //                                  if (is_version_number(dir_name))
-    //                                  {
-    //                                      add_header_search_path(file);
-    //                                  }
-    //                              }
-    //                          });
+    // /usr/include/c++/7
+    add_header_search_path("/usr/include/c++/" + header_version);
 
-    // file_util::iterate_files("/usr/include/c++/", [&](const std::string& file, bool is_dir) {
-    //     if (is_dir)
-    //     {
-    //         string dir_name = file_util::get_file_name(file);
-    //         if (is_version_number(dir_name))
-    //         {
-    //             add_header_search_path(file);
-    //         }
-    //     }
-    // });
+    // /usr/include/x86_64-linux-gnu/c++/7
+    add_header_search_path("/usr/include/x86_64-linux-gnu/c++/" + header_version);
 
-    add_header_search_path("/usr/include/c++/7");
-    add_header_search_path("/usr/include/x86_64-linux-gnu/c++/7");
-
-    add_header_search_path("/usr/lib/gcc/x86_64-linux-gnu/7/include");
+    add_header_search_path("/usr/lib/gcc/x86_64-linux-gnu/" + header_version + "/include");
     add_header_search_path("/usr/local/include");
-    add_header_search_path("/usr/lib/gcc/x86_64-linux-gnu/7/include-fixed");
+    add_header_search_path("/usr/lib/gcc/x86_64-linux-gnu/" + header_version + "/include-fixed");
     add_header_search_path("/usr/include/x86_64-linux-gnu");
     add_header_search_path("/usr/include");
 
@@ -466,4 +440,27 @@ void codegen::StaticCompiler::load_headers_from_resource()
 void codegen::StaticCompiler::set_precompiled_header_source(const std::string& source)
 {
     m_precomiled_header_source = source;
+}
+
+string codegen::StaticCompiler::find_header_version(const string& path)
+{
+    vector<string> directories;
+    string rc;
+    auto f = [&](const std::string& file, bool is_dir) {
+        if (is_dir)
+        {
+            directories.push_back(file);
+        }
+    };
+    file_util::iterate_files(path, f);
+    for (const string& dir : directories)
+    {
+        string dir_name = file_util::get_file_name(dir);
+        if (is_version_number(dir_name))
+        {
+            rc = dir_name;
+            break;
+        }
+    }
+    return rc;
 }
