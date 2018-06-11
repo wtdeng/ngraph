@@ -65,7 +65,7 @@
 #error "This source file interfaces with LLVM and Clang and must be compiled with RTTI disabled"
 #endif
 
-#define USE_BUILTIN
+// #define USE_BUILTIN
 
 using namespace clang;
 using namespace llvm;
@@ -265,6 +265,7 @@ void codegen::StaticCompiler::add_header_search_path(const string& p)
     vector<string> paths = split(p, ';');
     for (const string& path : paths)
     {
+        NGRAPH_INFO << path;
         if (!contains(m_extra_search_path_list, path))
         {
             m_extra_search_path_list.push_back(path);
@@ -373,42 +374,52 @@ void codegen::StaticCompiler::configure_search_path()
 
     add_header_search_path("/Library/Developer/CommandLineTools/usr/include/c++/v1");
 #else
+    NGRAPH_INFO << CLANG_BUILTIN_HEADERS_PATH;
     // Add base toolchain-supplied header paths
     // Ideally one would use the Linux toolchain definition in clang/lib/Driver/ToolChains.h
     // But that's a private header and isn't part of the public libclang API
     // Instead of re-implementing all of that functionality in a custom toolchain
     // just hardcode the paths relevant to frequently used build/test machines for now
     add_header_search_path(CLANG_BUILTIN_HEADERS_PATH);
+    // add_header_search_path("/usr/include/x86_64-linux-gnu");
+    // add_header_search_path("/usr/include");
+
+    // // Search for headers in
+    // //    /usr/include/x86_64-linux-gnu/c++/N.N
+    // //    /usr/include/c++/N.N
+    // // and add them to the header search path
+
+    // file_util::iterate_files("/usr/include/x86_64-linux-gnu/c++/",
+    //                          [&](const std::string& file, bool is_dir) {
+    //                              if (is_dir)
+    //                              {
+    //                                  string dir_name = file_util::get_file_name(file);
+    //                                  if (is_version_number(dir_name))
+    //                                  {
+    //                                      add_header_search_path(file);
+    //                                  }
+    //                              }
+    //                          });
+
+    // file_util::iterate_files("/usr/include/c++/", [&](const std::string& file, bool is_dir) {
+    //     if (is_dir)
+    //     {
+    //         string dir_name = file_util::get_file_name(file);
+    //         if (is_version_number(dir_name))
+    //         {
+    //             add_header_search_path(file);
+    //         }
+    //     }
+    // });
+
+    add_header_search_path("/usr/include/c++/7");
+    add_header_search_path("/usr/include/x86_64-linux-gnu/c++/7");
+
+    add_header_search_path("/usr/lib/gcc/x86_64-linux-gnu/7/include");
+    add_header_search_path("/usr/local/include");
+    add_header_search_path("/usr/lib/gcc/x86_64-linux-gnu/7/include-fixed");
     add_header_search_path("/usr/include/x86_64-linux-gnu");
     add_header_search_path("/usr/include");
-
-    // Search for headers in
-    //    /usr/include/x86_64-linux-gnu/c++/N.N
-    //    /usr/include/c++/N.N
-    // and add them to the header search path
-
-    file_util::iterate_files("/usr/include/x86_64-linux-gnu/c++/",
-                             [&](const std::string& file, bool is_dir) {
-                                 if (is_dir)
-                                 {
-                                     string dir_name = file_util::get_file_name(file);
-                                     if (is_version_number(dir_name))
-                                     {
-                                         add_header_search_path(file);
-                                     }
-                                 }
-                             });
-
-    file_util::iterate_files("/usr/include/c++/", [&](const std::string& file, bool is_dir) {
-        if (is_dir)
-        {
-            string dir_name = file_util::get_file_name(file);
-            if (is_version_number(dir_name))
-            {
-                add_header_search_path(file);
-            }
-        }
-    });
 
     add_header_search_path(EIGEN_HEADERS_PATH);
     add_header_search_path(MKLDNN_HEADERS_PATH);
