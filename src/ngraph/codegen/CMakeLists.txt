@@ -30,17 +30,12 @@ get_target_property(EIGEN_INCLUDE_DIR libeigen INTERFACE_INCLUDE_DIRECTORIES)
 get_target_property(LLVM_LIB_DIR libllvm INTERFACE_INCLUDE_DIRECTORIES)
 
 # find_file(HEADER_1 cmath HINTS /usr/include/c++/7)
-file(GLOB_RECURSE HEADER_1 /usr/include/c++/[0-9]/cmath)
-message(STATUS "****************************** HEADER_1 ${HEADER_1}")
-file(GLOB_RECURSE LLVM_INCLUDE_DIR ${LLVM_LIB_DIR}/../lib/stddef.h)
-get_filename_component(LLVM_INCLUDE_DIR ${LLVM_INCLUDE_DIR} ABSOLUTE)
-get_filename_component(LLVM_INCLUDE_DIR ${LLVM_INCLUDE_DIR} DIRECTORY)
-message(STATUS "****************************** LLVM_INCLUDE_DIR ${LLVM_INCLUDE_DIR}")
+get_filename_component(LLVM_LIB_DIR ${LLVM_LIB_DIR}/../lib/clang/5.0.1/include ABSOLUTE)
 
 set(HEADER_SEARCH_DEFINES
     "EIGEN_HEADERS_PATH=\"${EIGEN_INCLUDE_DIR}\""
     "MKLDNN_HEADERS_PATH=\"${MKLDNN_INCLUDE_DIR}\""
-    "CLANG_BUILTIN_HEADERS_PATH=\"${LLVM_INCLUDE_DIR}\""
+    "CLANG_BUILTIN_HEADERS_PATH=\"${LLVM_LIB_DIR}\""
     "NGRAPH_HEADERS_PATH=\"${NGRAPH_INCLUDE_PATH}\""
     "INSTALLED_HEADERS_PATH=\"${CMAKE_INSTALL_PREFIX}/include\""
 )
